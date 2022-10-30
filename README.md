@@ -1,4 +1,5 @@
-ReadMe https://suneetbansal.medium.com/angular-with-ngrx-54c5e146ca25
+ReadMe https://suneetbansal.medium.com/angular-with-ngrx-54c5e146ca25 , https://www.concretepage.com/ngrx/ngrx-effects-example
+
 
 # AngularStateManagement
 
