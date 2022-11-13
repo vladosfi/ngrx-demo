@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Customer } from 'src/app/models/customer';
-import { CustomerRemove } from 'src/app/store/actions/customer.actions';
+import { Customer } from 'src/app/shared/models/customer';
+import { CustomerRemove } from 'src/app/state/customer/customer.actions';
 
 @Component({
   selector: 'app-customers-view',

@@ -2,29 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
-import { CustomersViewComponent } from './components/customers-view/customers-view.component';
-import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { EffectsModule } from '@ngrx/effects';
-import { CustomerReducer } from './store/reducers/customer.reducer';
+import { CustomerReducer } from './state/customer/customer.reducer';
 
-import { UserEffects } from './store/effects/user.effects';
+import { UserEffects } from './state/user/user.effects';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './api/user.service';
-import { UserReducer } from './store/reducers/user.reducer';
+import { UserService } from './core/services/user.service';
+import { UserReducer } from './state/user/user.reducer';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersViewComponent,
-    CustomerAddComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot({ customers: CustomerReducer, users: UserReducer }),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects]),
+    AppRoutingModule,
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

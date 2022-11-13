@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Customer } from '../../models/customer';
 import { Observable } from 'rxjs';
-import { CustomerAdd } from '../../store/actions/customer.actions';
+import { Customer } from 'src/app/shared/models/customer';
+import { CustomerAdd } from '../../../state/customer/customer.actions';
 
 @Component({
   selector: 'app-customer-add',
