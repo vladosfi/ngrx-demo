@@ -1,7 +1,10 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<app-customers-view></app-customers-view>
-<app-customer-add></app-customer-add>
+<nav>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+    <li><a routerLink="/user" routerLinkActive="active" ariaCurrentWhenActive="page">Users</a></li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
+
+

@@ -1,30 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoreModule } from '@ngrx/store';
-import { AppComponent } from './app.component';
-import { CustomersViewComponent } from './components/customers-view/customers-view.component';
-import { CustomerAddComponent } from './components/customer-add/customer-add.component';
-import { EffectsModule } from '@ngrx/effects';
-import { CustomerReducer } from './store/reducers/customer.reducer';
 
-import { UserEffects } from './store/effects/user.effects';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { reducers } from './+store/reducer';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './api/user.service';
-import { UserReducer } from './store/reducers/user.reducer';
+import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from './+store/effects';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersViewComponent,
-    CustomerAddComponent
+    UserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ customers: CustomerReducer, users: UserReducer }),
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     EffectsModule.forRoot([UserEffects])
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

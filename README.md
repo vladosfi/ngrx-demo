@@ -1,9 +1,6 @@
-ReadMe https://suneetbansal.medium.com/angular-with-ngrx-54c5e146ca25 , https://www.concretepage.com/ngrx/ngrx-effects-example
+# TestNgrx
 
-
-# AngularStateManagement
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
 ## Development server
 

@@ -1,0 +1,12 @@
+<ng-container *ngIf="(users$ | async)">
+  <ul>
+    <li *ngFor="let user of (users$ | async)">
+      {{user.username}}
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="!(users$ | async)">
+  Loading ...
+</ng-container>
+
+<h1>Users</h1>
