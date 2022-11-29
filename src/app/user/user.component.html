@@ -1,12 +1,30 @@
+<h1>Users</h1>
+
+
 <ng-container *ngIf="(users$ | async)">
-  <ul>
-    <li *ngFor="let user of (users$ | async)">
-      {{user.username}}
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li *ngFor="let user of (users$ | async)">
+        <img src="http://lorempixum.com/100/100/nature/1">
+        <h3>{{user.id}} - {{user.username}}</h3>
+
+        <p>Name: {{user.name}} </p>
+        <p>e-mail: {{user.email}} </p>
+        <p>Phone: {{user.phone}} </p>
+        <p>Website: {{user.website}} </p>
+      </li>
+    </ul>
+  </div>
 </ng-container>
+
+
 <ng-container *ngIf="!(users$ | async)">
   Loading ...
 </ng-container>
 
-<h1>Users</h1>
+
+<ng-container *ngIf="(error$ | async)">
+  <p>{{ (error$ | async).statusText }}</p>
+  <p>{{ (error$ | async).message }}</p>
+</ng-container>
+

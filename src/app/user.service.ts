@@ -18,12 +18,10 @@ export class UserService {
   }
 
 
-  loadUsersEffect(): Observable<any[]> {
-    return this.http.get<any[]>('https://jsonplaceholder.typicode.com/users');
+  loadUsersEffect() {
+    //return this.http.get<any[]>('https://jsonplaceholder.typicode.com/users');
 
-    // return of(this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')).pipe((
-    //   map(item => ({ users: item })))
-    // );
+    return this.http.get('https://jsonplaceholder.typicode.co/users');
 
   }
 }

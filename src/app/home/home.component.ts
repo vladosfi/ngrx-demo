@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment } from '../+store/actions';
 import { IAppState } from '../+store/reducer';
-import { getGlobalCounter, getGlobalUsers } from '../+store/selectors';
+import { getGlobalCounter,  getGlobalUsers } from '../+store/selectors';
 import { UserService } from '../user.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.userService.loadUsers();
+    this.userService.loadUsers();
   }
 
   incrementCounter() {

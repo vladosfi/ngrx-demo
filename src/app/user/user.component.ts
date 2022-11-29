@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadUsersSuccess } from '../+store/actions';
+import { apiGetUserData, loadUsersSuccess } from '../+store/actions';
 import { IAppState } from '../+store/reducer';
-import { getGlobalUsers } from '../+store/selectors';
+import {  getGlobalUserError, getGlobalUsersFromEffect } from '../+store/selectors';
 
 @Component({
   selector: 'app-user',
@@ -10,13 +10,14 @@ import { getGlobalUsers } from '../+store/selectors';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  users$ = this.store.select(getGlobalUsers);
+  users$ = this.store.select(getGlobalUsersFromEffect);
+  error$ = this.store.select(getGlobalUserError);
 
   constructor(private store: Store<IAppState>) { }
 
   ngOnInit(): void {
     //this.store.dispatch(loadUsersSuccess({users: []}));
-    this.store.dispatch(loadUsersSuccess({ users: [] }));
+    this.store.dispatch(apiGetUserData());
   }
 
 }
