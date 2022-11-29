@@ -13,9 +13,8 @@ export class UserEffects {
     tap(() => { console.log('new getUserDataEffect occurred in queue') }),
     mergeMap(() => this.userService.loadUsersEffect()
       .pipe(
-        map(data => ({ type: '[Users API] Users Loaded Success', usersFromEffects: data })),
-        //map(data => { return new loadUsersSuccess(data) }),
-        //map(users => of(new loadUsersSuccess(users))),
+        //map(data => ({ type: '[Users API] Users Loaded Success', usersFromEffects: data })),
+        map(data => loadUsersSuccess({ usersFromEffects: data as any[] })),
         catchError((err) =>
           of({ type: '[Users API] Users Loaded Error', error: err })
         ),
